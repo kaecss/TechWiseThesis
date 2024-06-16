@@ -13,7 +13,6 @@ USER PAGE - HOME
 
 ADMIN ACCOUNT SETTINGS:
 -DASHBOARD (PAG USAPAN MUNA YUNG MGA ILALAGAY)
--New Password: Gawing asterisk yung password dito basta h'wag visible.
 -Profile picture: Hindi ko pa naayos pero sa user account settings nakakapag upload na, dito hindi pa.
 
 

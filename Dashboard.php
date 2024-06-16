@@ -50,9 +50,9 @@ $stmt->close();
             <span class="username"><?php echo htmlspecialchars($username); ?></span>
         </div>
         <ul>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> User</a></li>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Record</a></li>
+            <li><a href="Dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="userlist.php" class="active"><i class="fas fa-home"></i> User</a></li>
+            <li><a href="adminrecords.php" class="active"><i class="fas fa-home"></i> Record</a></li>
             <hr>
             <li><a href="admin_page.php"><i class="fas fa-cog"></i> Account Settings</a></li>
             <li><a href="admin-login.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
@@ -62,43 +62,10 @@ $stmt->close();
         <input type="text" id="searchInput" class="search-bar" placeholder="Search...">
         <button type="button" onclick="searchFiles()" class="search-button"><i class="fas fa-search"></i></button>
     </div>
-    <div class="upload-form">
-        <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="pdfFile" accept="all files">
-            <input type="submit" class="upload-button" value="Upload">
-        </form>
-    </div>
-    <div class="dash-table">
-            <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-            </table>
-    </div>
+    
+    <br>
+    <hr>
+    
             
     <script>
         document.addEventListener("DOMContentLoaded", function () {

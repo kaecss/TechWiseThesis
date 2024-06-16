@@ -82,6 +82,7 @@ $conn->close();
                 <img src="<?php echo htmlspecialchars($profilePic); ?>" alt="Profile" class="profile-pic" id="profilePic">
                 <button onclick="document.getElementById('fileInput').click()" class="upload-btn">Upload Image</button>
                 <input type="file" id="fileInput" accept="image/*" onchange="loadFile(event)" style="display:none;">
+
             </div>
         </div>
         
