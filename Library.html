@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="Library.css">
+    <link rel="stylesheet" href="main_library.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="side-panel">
-	<div class="company-name">
+        <div class="company-name">
             <a href="#">
                 <img src="image/logo.png" alt="Company Logo" class="company-logo">
             </a>
             <h2>TechWiseThesis</h2>
         </div>
-       <div class="user-info">
-		<i class="fas fa-user"></i>
-		<a href="login.php" class="login-link">Log In</a>
-	</div>
+        <div class="user-info">
+            <i class="fas fa-user"></i>
+            <a href="login.php" class="login-link">Log In</a>
+        </div>
 
         <ul>
             <li><a href="main.html"><i class="fas fa-home"></i> Home</a></li>
@@ -27,22 +27,23 @@
         </ul>
     </div>
     <div class="main-content">
-       <div class="header">
-			<span class="library-label">Library</span>
-			<div class="search-bar">
-				<input type="text" placeholder="Search...">
-				<button><i class="fas fa-search"></i></button>
-			</div>
-		</div>
-		<div class="sort-dropdown">
-			<label for="sort-by" class="sort-label">Sort by:</label>
-			<select id="sort-by">
-				<option value="date">Date</option>
+        <div class="header">
+            <span class="library-label">Library</span>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        <div class="sort-dropdown">
+             <label for="sort-by" class="sort-label">Sort by:</label>
+            <select id="sort-by">
+                <option value="title">Title</option>
 				<option value="time">Time</option>
-			</select>
-		</div>
 
-        <div class="content-container">
+            </select>
+        </div>
+
+         <div class="content-container">
              <div class="content-item">
                 <a href="thesis1.html"><img src="image/t1.png" alt="Photo Title"></a>
                 <div class="content-details">
@@ -68,7 +69,7 @@
 			
 			
 			  <div class="content-item">
-                <a href="thesis2.html"><img src="image/t2.png" alt="Photo Title"></a>
+                <a href="thesis2.html"><img src="image/b9.jpeg" alt="Photo Title"></a>
                 <div class="content-details">
                     <a href="thesis2.html" class="epilogue-title">Are Technology Improvements Contractionary?</a>
                     <p class="card-text">
@@ -124,7 +125,7 @@
                         <span class="badge badge-warning">80 comments</span>
                     </p>
                     <div class="author-profile d-flex align-items-center">
-                        <a href="thesis4.html"><img src="imagea/p4.jpg" class="rounded-circle" alt="Author" width="40" height="40"></a>
+                        <a href="thesis4.html"><img src="image/p4.jpg" class="rounded-circle" alt="Author" width="40" height="40"></a>
                         <div class="author-info">
                             <div>
                                 <p class="card-text1"><a href="thesis4.html">Harvey Valentin</a></p>
@@ -185,7 +186,111 @@
                 </div>
             </div>
 
+
+        </div>
+        <div class="no-results-container">
+            <p class="no-results-message">No files match your search.</p>
         </div>
     </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+		const searchButton = document.getElementById('searchButton');
+		const searchInput = document.getElementById('searchInput');
+		const contentItems = document.querySelectorAll('.content-item');
+		const noResultsContainer = document.querySelector('.no-results-container');
+		const sortDropdown = document.getElementById('sort-by');
+
+            // Search functionality
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                let matchFound = false;
+
+                contentItems.forEach(function(item) {
+                    const title = item.querySelector('.epilogue-title').textContent.toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'flex'; // Show matching items
+                        matchFound = true;
+                    } else {
+                        item.style.display = 'none'; // Hide non-matching items
+                    }
+                });
+
+                if (!matchFound) {
+                    noResultsContainer.style.display = 'block'; // Show message if no matches found
+                } else {
+                    noResultsContainer.style.display = 'none'; // Hide message if matches found
+                }
+            });
+
+            // Function to handle clearing the search and showing all items
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                contentItems.forEach(function(item) {
+                    const title = item.querySelector('.epilogue-title').textContent.toLowerCase();
+                    if (searchTerm === '' || title.includes(searchTerm)) {
+                        item.style.display = 'flex'; // Show matching items or all if search is empty
+                    } else {
+                        item.style.display = 'none'; // Hide non-matching items
+                    }
+                });
+
+                noResultsContainer.style.display = 'none'; // Hide message on new search input
+            });
+
+            // Sorting functionality
+             sortDropdown.addEventListener('change', function() {
+				const sortBy = this.value;
+
+				if (sortBy === 'title') {
+					sortByTitle();
+				} else if (sortBy === 'time') {
+					sortByTime();
+				}
+				// Add additional sorting options if needed
+			});
+
+
+            function sortByTitle() {
+        const sortedItems = Array.from(contentItems).sort((a, b) => {
+            const titleA = a.querySelector('.epilogue-title').textContent.trim().toLowerCase();
+            const titleB = b.querySelector('.epilogue-title').textContent.trim().toLowerCase();
+            return titleA.localeCompare(titleB);
+        });
+
+        updateContent(sortedItems);
+    }
+
+    // Function to sort items by time posted (most recent first)
+    function sortByTime() {
+        const sortedItems = Array.from(contentItems).sort((a, b) => {
+            const timeA = getTimeInHours(a.querySelector('.card-text2').textContent);
+            const timeB = getTimeInHours(b.querySelector('.card-text2').textContent);
+            return timeB - timeA;
+        });
+
+        updateContent(sortedItems);
+    }
+
+    // Helper function to extract hours from "Posted xh ago"
+    function getTimeInHours(timeText) {
+        const hoursIndex = timeText.indexOf('h');
+        return parseInt(timeText.slice(7, hoursIndex).trim());
+    }
+
+    // Function to update content based on sorted items
+    function updateContent(sortedItems) {
+        // Clear current content and append sorted items
+        contentItems.forEach(item => {
+            item.parentNode.removeChild(item); // Remove each item from DOM
+        });
+
+        sortedItems.forEach(item => {
+            document.querySelector('.content-container').appendChild(item); // Append sorted items
+        });
+    }
+});
+    </script>
 </body>
 </html>

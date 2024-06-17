@@ -44,11 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>ADMIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="userlogin.css">
+    <link rel="stylesheet" href="admin-login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
+<video id="video-background" autoplay muted loop>
+        <source src="v1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+</video>
+
 <div class="container">
         <div class="company-name">
              <a href="#">
@@ -60,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         <!--//////////ADMIN LOG IN////////////////-->
     <div class="login-wrap">
         <div class="login-html">
-            <a href="main.html">
+            <a href="login.php">
                 <button class="exit-button"><i class="fa fa-xmark"></i></button>
             </a>
             <input id="tab-1" type="radio" name="tab" class="log-in" checked><label for="tab-1" class="tab">Admin Log In</label>

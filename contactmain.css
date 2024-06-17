@@ -1,83 +1,111 @@
 html, body {
     font-family: 'Times New Roman', Times, serif;
-    margin: 0px;
-    padding: 0px;
-	scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 50px;
-    background-color: #734122; 
+    padding: 20px 20px;
+    z-index: 1000; 
+}
+
+::-webkit-scrollbar {
+    height: 1px;
+    width: 10px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
 
 .company-name {
     width: 50%;
-    padding: 10px;
+    padding: 50px -1px;
     text-align: center;
-    display: flex;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    display: flex; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    align-items: center;
 }
 
 .company-logo {
-    width: 100px; 
-    height: 100px;
+    width: 50px; 
+    height: 50px;
     border-radius: 100%;
 }
 
 .company-name h2 {
-    margin: 20px;
-    color: #FFFBE9;
+    margin: 15px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Abhaya Libre', serif;
 }
 
 .fas.fa-user {
-  color: #fff; 
-  font-size: 24px; 
-  position: relative; 
-  margin-right:10px;
+    color: #fff; 
+    font-size: 24px; 
+    position: relative; 
+    margin-right: 10px;
 }
 .fas.fa-user:hover {
-  color:#BB8463; 
+    color: #BB8463; 
 }
 .fas.fa-user::after {
-  content: "Register";
-  font-size: 12px;  
-  font-family: 'Times New Roman', Times, serif;
-  position: absolute; 
-  top: calc(100% + 5px); 
-  left: 50%;
-  transform: translateX(-50%); 
-  display: none; 
+    content: "Register";
+    font-size: 12px;  
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute; 
+    top: calc(100% + 5px); 
+    left: 50%;
+    transform: translateX(-50%); 
+    display: none; 
 }
 .fas.fa-user:hover::after {
-  display: block; 
+    display: block; 
 }
+
 .navigation {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding-top: 5px;
+    padding: 0;
 }
+
 .navigation a {
     text-decoration: none;
-    color: #5D3624; 
+    color: #000; 
     font-size: 20px;
-    margin: 20px;
+    margin: 30px;
     transition: color 0.3s ease;
+    font-family: 'Lato', sans-serif;
 }
 
 .navigation a:hover {
-    color: #BA7E3B; 
+    color: #8b4513; 
 }
 
 .navigation a.active {
     font-weight: bold;
-    color: #BA7E3B; 
+    color: #8b4513; 
 }
 
-main {
-    background-image: url('image/b9.jpeg');
-    height: 300px;
+.head {
+    background-image: url('image/b13.jpg');
+    height: 110vh;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
@@ -86,25 +114,21 @@ main {
 
 .main-content {
     padding: 80px;
+    margin-top: 0;
     text-align: left;
-   
 }
 
 .main-content h1 {
     font-size: 70px;
     margin-left: 80px;
-	 color: #fff; 
+    color: #fff;
+    font-family: 'Abhaya Libre', serif;
 }
-main img {
-    max-width: 50%;
-    height: auto;
-    object-fit: cover;
-    position: absolute;
-    right: 50px;
-    top: 50%;
-    transform: translateY(-50%);
 
+.info {
+    background-color: rgb(0, 0, 0, 0.3);
 }
+
 .contact-info {
     display: inline-block;
     margin-left: 15%; 
@@ -113,16 +137,19 @@ main img {
 
 .contact-icon {
     margin-right: 10px; 
+    color: #fff;
 }
 
 .contact-icon i {
-	padding: 20px;
+    padding: 10px;
     font-size: 20px; 
+    color: #fff;
 }
 
 .contact-details p {
     margin: 0;
-	color: #565E6D;
+    color: #565E6D;
+    color: #fff;
 }
 
 main img.contact-image {
@@ -134,9 +161,10 @@ main img.contact-image {
     top: 50%;
     transform: translateY(-50%);
 }
+
 .contact-wrapper {
     position: relative;
-	 margin: 0 5%;
+    margin: 0 5%;
 }
 
 .contact-form {
@@ -144,7 +172,7 @@ main img.contact-image {
     justify-content: flex-end; 
     margin-top: 100px;
     margin-bottom: 50px;
-} 
+}
 
 .contact-form form {
     width: 40%; 
@@ -164,110 +192,148 @@ main img.contact-image {
 
 .contact-form textarea {
     height: 100px; 
+	
 }
 
 .contact-form button {
-    background-color: #B58158;
+    background-color: #8b4513;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+	
 }
 
 .contact-form button:hover {
     background-color: #DFCCBB;
-	color: #B58158;
+    color: #B58158;
 }
 
 .contact-form .send {
     text-decoration: none;
     color: inherit;
+	
 }
 
 footer {
-  background-color: #343434;
-  color: #fff;
-  padding: 50px 50px;
-  text-align: center;
-  margin-top: 700px; 
+    background-color: #000;
+    color: #fff;
+    padding: 50px 50px;
+    text-align: center;
+    margin-top: 100px; 
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .footer-content {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10px; 
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px; 
 }
 
 .icon-button {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .icon-text {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .company-info {
-  text-align: left;
+    text-align: left;
 }
 
 .company-name {
-  font-size: 30px;
-  margin: 0;
+    font-size: 30px;
+    margin: 0;
+    font-family: 'Abhaya Libre', serif;
 }
 .company-contact, .company-phone, .company-email {
-  margin: 0;
-  padding-top:30px;
+    margin: 0;
+    padding-top: 30px;
+    font-family: 'Lato', sans-serif;
 }
 .footer-text {
-  text-align: left;
-  padding-right: 70px; 
-  line-height: 1.5;
+    text-align: left;
+    padding-right: 70px; 
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
 }
-.footer-nav{
-  padding-left:600px;
-  padding-bottom: 20px;
+.footer-nav {
+    padding-left: 600px;
+    padding-bottom: 20px;
 }
 .rights-reserved {
-  padding-top: 30px;
-  flex-basis: 100%; 
-  margin: 0 auto; 
-  border-top: 1px solid #fff;
-  text-align: center; 
-  position: relative;
+    padding-top: 30px;
+    flex-basis: 100%; 
+    margin: 0 auto; 
+    border-top: 1px solid #fff;
+    text-align: center; 
+    position: relative;
+    font-family: 'Lato', sans-serif;
 }
 
 @media only screen and (max-width: 768px) {
-	.main-content h1 {
-    font-size: 60px;
-	}
+    .main-content {
+        padding: 60px;
+    }
+
+    .main-content h1 {
+        font-size: 50px;
+    }
+
+    .info {
+        padding: 0;
+    }
+
+    main img.contact-image {
+        display: none;
+    }
+
+    .contact-form {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column; 
+        margin-top: 20px; 
+    }
+
+    .contact-form form {
+        width: 80%; 
+        padding-top: 50px; 
+    }
+
     .footer {
         padding-left: 0;
     }
+
     .rights-reserved {
         padding-top: 20px;
     }
+
     .footer-content {
         flex-direction: column;
         align-items: center;
         padding-left: 0; 
     }
+
     .icon-button, .icon-text {
         margin-bottom: 15px;
     }
+
     .footer-text {
         padding-right: 0; 
         text-align: center; 
     }
+
     .contact-info {
         display: flex;
         flex-direction: column;
@@ -277,30 +343,33 @@ footer {
         width: 100%;
         text-align: center;
     }
-	 .contact-form {
+
+    .contact-form {
         margin: 0;
-		 padding-top: 20px;
+        padding-top: 20px;
     }
-	
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .footer {
         padding: 20px;
     }
-	.footer-text {
-	  text-align: left;
-	  padding-right: 10px; 
-	  line-height: 1.5;
-	}
+
+    .footer-text {
+        text-align: left;
+        padding-right: 10px; 
+        line-height: 1.5;
+    }
+
     .contact-info {
         display: inline-block;
         margin-left: 10%; 
         text-align: center; 
     }
+
     .contact-wrapper {
         margin: 0 5%;
-		
     }
+
     .contact-form {
         justify-content: flex-end;
     }

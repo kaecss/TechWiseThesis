@@ -1,6 +1,12 @@
 body {
-    font: 600 16px/18px 'Times New Roman', Times, serif;
-    overflow: hidden;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
 *, :after, :before {
@@ -16,52 +22,52 @@ body {
     clear: both;
     display: block;
 }
-
+ #video-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 90%;
+	min-height: 50%;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+}
+.content {
+	z-index: 1;
+	text-align: center;
+	color: #fff;
+}
 .container {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    background-image: url('image/b8.jpg'); 
-    background-size: cover;
-    background-position: center;
+	width: 100vw;
+	height: 90vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #BA7E3B;
+	font: 600 16px/18px 'Times New Roman', Times, serif;
+	overflow: hidden;
 }
 
-.company-name {
-    width: 50%;
-    padding: 80px;
-    text-align: center;
-    display: flex; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-}
-
-.company-logo {
-    width: 50px; 
-    height: 50px;
-    border-radius: 100%;
-}
-
-.company-name h1 {
-    margin: 15px;
-    color: #FFFBE9;
-}
 
 .login-wrap {
     width: 40%; 
-    margin: auto;
     max-width: 100%; 
-    height: 60%; 
     position: relative;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-    background: #5F371E;
-	border-radius: 20px;
+    background: rgb(0,0,0, .5);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
 }
+
 
 .login-html {
     width: 100%;
-    height: 50%;
-    position: absolute;
-    padding: 100px 70px 50px 70px;
+    padding: 20px ;
 }
 
 .exit-button {
@@ -82,7 +88,7 @@ body {
 }
 
 .login-form {
-    min-height: 345px;
+    min-height: 200px;
     position: relative;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -122,10 +128,16 @@ body {
     display: block;
     font-size: 12px;
 }
+.input::placeholder {
+    color: #d3d3d3;
+}
 
 a {
     color: inherit;
     text-decoration: none;
+}
+option {
+    color: black;
 }
 
 .group .input {
@@ -144,7 +156,7 @@ a {
 }
 
 .login-form .group .button {
-    background: #B58158; 
+    background: #8b4513; 
     cursor: pointer; 
     text-align: center; 
     transition: background-color 0.3s ease;
@@ -159,7 +171,6 @@ a {
     background: #ffffff;
     color: #B58158;
 }
-
 
 
 

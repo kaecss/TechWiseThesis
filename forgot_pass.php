@@ -6,27 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password</title>
-    <link rel="stylesheet" href="forgot_pass.css">
+    <link rel="stylesheet" href="forgot-pas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-<div class="container">
-    <div class="company-name">
-        <a href="#">
-            <img src="image/logo.png" alt="Company Logo" class="company-logo">
-        </a>
-        <h1>TechWiseThesis</h1>
-    </div>
+
+<video id="video-background" autoplay muted loop>
+        <source src="v1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+</video>
+
     <div class="login-wrap">
         <div class="login-html">
-            <a href="user-login.html">
+            <a href="login.php">
                 <button class="exit-button"><i class="fa fa-xmark"></i></button>
             </a>
             <input id="tab-1" type="radio" name="tab" class="log-in" checked><label for="tab-1" class="tab">Forgot Password</label>
             <div class="login-form">
                 <div class="log-in-htm">
-                   <form action="controllerUserData.php" method="post" autocomplete>
+                   <form action="UserDataController.php" method="post" autocomplete>
 					<div class="group">
 						<label for="email" class="label">Enter your email address</label><br>
                         <input id="email" name="email" type=" email" class="input" required placeholder="Enter your email address">

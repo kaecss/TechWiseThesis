@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="contactmain.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
+<div class="head">
   <header>
     <div class="company-name">
         <a href="#">
@@ -25,16 +26,17 @@
 
   <nav class="navigation">
       <a href="main.html">Home</a>
-      <a href="#">Library</a>
+      <a href="Library.html">Library</a>
       <a href="login.php">Profile</a>
       <a href="main.html#our-teams">Team</a>
       <a href="#" class="active">Contact Us</a>
   </nav>
   
-  <main>
     <div class="main-content">
+	<br>
       <h1>Contact Us</h1>
     </div>
+	<div class="info">
     <div class="contact-info">
           <div class="contact-icon">
               <i class="fas fa-map-marker-alt" style="font-size: 24px;"></i>
@@ -59,7 +61,9 @@
               <p>techwisethesis@gmail.com</p>
           </div>
       </div>
-      
+	  </div>
+    </div>
+	     <main>
     <div class="contact-wrapper">
       <img src="image/5.png" alt="Contact Image" class="contact-image">
     
