@@ -1,0 +1,330 @@
+ body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.clearfix:after, .clearfix:before {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+}
+.company-info {
+	position: absolute;
+	left: 30px;
+	top: 60px; 
+	display: flex;
+	align-items: center;
+}
+
+.company-logo {
+	width: 50px; 
+	height: 50px;
+	border-radius:50%;
+}
+
+.company-name {
+	margin-left: 10px; 
+	font-size: 24px; 
+	font-weight: bold;
+	color: #fff;
+}
+ #video-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 90%;
+	min-height: 50%;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+}
+.content {
+	z-index: 1;
+	text-align: center;
+	color: #fff;
+}
+.container {
+	width: 100vw;
+	height: 90vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #BA7E3B;
+	font: 600 16px/18px 'Times New Roman', Times, serif;
+	overflow: hidden;
+}
+
+.login-wrap {
+    width: 40%; 
+    max-width: 100%; 
+    position: relative;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+    background: rgb(0,0,0, .5);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+
+.login-html {
+    width: 100%;
+    padding: 20px ;
+}
+
+.exit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #BA7E3B;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    z-index: 10;
+}
+
+.exit-button:hover {
+    color: #ffffff;
+}
+
+
+.login-form {
+	height: 460px;
+	
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.login-html .log-in-htm,
+.login-html .sign-in-htm {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all .4s linear;
+}
+
+.login-html .log-in:checked + .tab + .sign-in + .tab + .login-form .log-in-htm {
+    transform: rotate(0);
+}
+
+.login-html .sign-in:checked + .tab + .login-form .sign-in-htm {
+    transform: rotate(0);
+}
+
+.login-form .group {
+    margin-bottom: 10px;
+}
+
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button {
+    text-transform: uppercase;
+}
+
+.login-html .tab {
+    font-size: 22px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.login-html .log-in:checked + .tab,
+.login-html .sign-in:checked + .tab {
+    color: #fff;
+    border-color: #BA7E3B;
+}
+
+.login-html .log-in,
+.login-html .sign-in,
+.login-form .group .check {
+    display: none;
+}
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button {
+    width: 100%;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+	
+}
+.input::placeholder {
+    color: #d3d3d3;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.group .input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .2);
+    border: none;
+    appearance: none; 
+	 font-family: 'Lato', sans-serif;
+}
+
+.log-in-htm  {
+    padding-top: 100px ;
+	
+    border: none;
+    appearance: none; 
+}
+
+.group .input:focus {
+    outline: none;
+    border: 1px solid; 
+}
+
+.group .input::-ms-expand {
+    display: none; 
+}
+
+.login-form .group input[data-type="password"] {
+    input-security: circle;
+    -webkit-text-security: circle;
+}
+
+.login-form .group .button {
+    background: #8b4513; 
+    cursor: pointer; 
+    text-align: center; 
+    transition: background-color 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 7px;
+    font-size: 16px;
+    border-radius: 25px; 
+    border: 0;
+}
+
+.login-form .group .button:hover {
+    background: #DFCCBB;
+    color: #5F371E;
+}
+
+.hr {
+    height: 1px;
+    margin: 20px 0 10px 0;
+    background: #fff;
+}
+
+.foot-lnk {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.foot-lnk a {
+    display: inline-block; 
+    margin-top: 7px;
+}
+.foot-lnk a:hover {
+    color: #A90F0D;
+    cursor: pointer;
+}
+
+.foot-lnk label:hover {
+    color: #BA7E3B;
+    cursor: pointer;
+}
+
+.login-form .group select {
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .2);
+    border: none;
+    appearance: none;
+}
+.login-form .group option {
+    color: #000;
+}
+.login-form .group select:focus {
+    outline: none;
+    border: 1px solid;
+}
+
+.swal2-popup.custom-swal-popup {
+	background-color: #ffffff; 
+	color: #FFFBE9;
+	border-radius: 20px; 
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.swal2-title.custom-swal-title {
+	color: #BA7E3B; 
+	font-size: 24px; 
+	font-weight: bold; 
+}
+
+.swal2-content.custom-swal-content {
+	font-size: 18px; 
+}
+
+.swal2-confirm.custom-swal-confirm-button {
+	background-color: #B58158; 
+	color: #FFFBE9;
+	font-size: 16px;
+	border-radius: 10px;
+	padding: 10px 20px; 
+	border: none; 
+	transition: background-color 0.3s ease; 
+}
+
+.swal2-confirm.custom-swal-confirm-button:hover {
+	background-color: #DFCCBB; 
+	color: #5F371E;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .company-name {
+        width: 100%; 
+        padding: 40px; 
+        text-align: center; 
+    }
+
+    .login-wrap {
+        width: 80%; 
+        margin-bottom: 20px; 
+    }
+
+    .login-html {
+        padding: 50px;
+    }
+}
