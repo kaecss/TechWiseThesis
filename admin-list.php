@@ -23,7 +23,7 @@ $profilePic = $row['profile_pic'] ? $row['profile_pic'] : 'image/default-profile
 
 $stmt->close();
 
-$userData = mysqli_query($conn, "SELECT * FROM user_form");
+$userData = mysqli_query($conn, "SELECT * FROM admins");
 
 
 ?>
@@ -75,9 +75,9 @@ $userData = mysqli_query($conn, "SELECT * FROM user_form");
             <table class="table table-hover table-bordered border-dark text-center text-capitalize">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Admin ID</th>
+                    <th scope="col">Admin Username</th>
+                    <th scope="col">Admin Email</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
 
@@ -89,11 +89,11 @@ $userData = mysqli_query($conn, "SELECT * FROM user_form");
                     if ($userData->num_rows > 0) {
                         while($row = $userData->fetch_assoc()) {
                             echo "<tr>
-                            <td>".$row["id"]."</td>
-                            <td>".$row["username"]."</td>
-                            <td>".$row["email"]."</td>
+                            <td>".$row["admin_id"]."</td>
+                            <td>".$row["usernamead"]."</td>
+                            <td>".$row["emailad"]."</td>
                             <td></td>
-                            <td><input class='btn btn-primary' type='button' value='Edit' name='edit'></td>
+                            <td><input class='btn btn-primary' type='button' value='Remove' name='remove'></td>
                             </tr>";
 
                         }

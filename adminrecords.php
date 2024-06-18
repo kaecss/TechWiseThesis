@@ -50,7 +50,8 @@ $stmt->close();
             <span class="username"><?php echo htmlspecialchars($username); ?></span>
         </div>
         <ul>
-            <li><a href="Dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="Dashboard.php" class="active"><i class="far fa-chart-bar"></i> Dashboard</a></li>
+            <li><a href="admin-list.php" class="active"><i class="fas fa-user-cog"></i> Admins</a></li>
             <li><a href="userlist.php" class="active"><i class="fas fa-address-book"></i> User</a></li>
             <li><a href="adminrecords.php" class="active"><i class="fas fa-book"></i> Record</a></li>
             <hr>
