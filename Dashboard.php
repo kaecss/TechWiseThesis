@@ -36,6 +36,7 @@ $stmt->close();
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
     <div class="side-panel">
@@ -51,8 +52,8 @@ $stmt->close();
         </div>
         <ul>
             <li><a href="Dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="userlist.php" class="active"><i class="fas fa-home"></i> User</a></li>
-            <li><a href="adminrecords.php" class="active"><i class="fas fa-home"></i> Record</a></li>
+            <li><a href="userlist.php" class="active"><i class="fas fa-address-book"></i> User</a></li>
+            <li><a href="adminrecords.php" class="active"><i class="fas fa-book"></i> Record</a></li>
             <hr>
             <li><a href="admin_page.php"><i class="fas fa-cog"></i> Account Settings</a></li>
             <li><a href="admin-login.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
@@ -65,8 +66,100 @@ $stmt->close();
     
     <br>
     <hr>
-    
+    <br>
+
+    <div>
+        <div class="row">
+        <div class="col-sm-3"> </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title"><i class="fas fa-user-alt"></i> 77</h1>
+                    <h4 class="card-title">Number of users</h4>
+                </div>
+                </div>
+            </div>
             
+            <div class="col-sm-4">
+                <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title"><i class="fas fa-archive"></i> 5</h1>
+                    <h4 class="card-title">Record</h4>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-1"> </div>
+
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <div class="row">
+        <div class="col-sm-3"> </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title"><i class="fas fa-upload"></i> 5</h1>
+                    <h4 class="card-title">Uploaded</h4>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title"><i class="fas fa-book-reader"></i> 11</h1>
+                    <h4 class="card-title">Pending</h4>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-1"> </div>
+
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="container mt-5">
+        <table class="table table-hover table-bordered border-dark text-center text-capitalize">
+            <thead>
+                <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Date Uploaded</th>
+                <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>how to make lumpia</td>
+                    <td>bins</td>
+                    <td>2023-02-02</td>
+                    <td>Food</td>
+                </tr>
+                <tr>
+                    <td>CSS and how to improve it</td>
+                    <td>teya</td>
+                    <td>2020-02-06</td>
+                    <td>Information Technology</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>    
+
+    <br>
+    <hr>
+    <br>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sliders = document.querySelectorAll(".slider");

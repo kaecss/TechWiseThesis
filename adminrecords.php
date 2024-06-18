@@ -51,8 +51,8 @@ $stmt->close();
         </div>
         <ul>
             <li><a href="Dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="userlist.php" class="active"><i class="fas fa-home"></i> User</a></li>
-            <li><a href="adminrecords.php" class="active"><i class="fas fa-home"></i> Record</a></li>
+            <li><a href="userlist.php" class="active"><i class="fas fa-address-book"></i> User</a></li>
+            <li><a href="adminrecords.php" class="active"><i class="fas fa-book"></i> Record</a></li>
             <hr>
             <li><a href="admin_page.php"><i class="fas fa-cog"></i> Account Settings</a></li>
             <li><a href="admin-login.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
@@ -68,37 +68,34 @@ $stmt->close();
     <br>
 
     </div>
-    <div class="dash-table">
-            <table class="table table-bordered">
+    
+    <div class="container mt-5">
+        <table class="table table-hover table-bordered border-dark text-center text-capitalize ">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Date Uploaded</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Date Uploaded</th>
+                <th scope="col">Category</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>how to make lumpia</td>
+                    <td>bins</td>
+                    <td>2023-02-02</td>
+                    <td>Food</td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
+                    <td>CSS and how to improve it</td>
+                    <td>teya</td>
+                    <td>2020-02-06</td>
+                    <td>Information Technology</td>
                 </tr>
             </tbody>
-            </table>
-    </div>
+        </table>
+        
+    </div> 
             
     <script>
         document.addEventListener("DOMContentLoaded", function () {

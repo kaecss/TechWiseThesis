@@ -319,29 +319,12 @@ p {
         position: fixed;
     }
 }
-.dash-table {
-    width: 70%;
-    justify-content: center;
-    border-collapse: collapse;
-    margin-top: 100px;
-    margin: 0 auto;
-}
 
-.dash-table table{
-    width: 110%;
-    
-}
-
-.dash-table th, .dash-table td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-
-.dash-table th {
+thead {
     background-color: #996633;
+    color: white;
 }
 
-.dash-table tbody tr:nth-child(even) {
-    background-color: gray;
-}
+
+
+
