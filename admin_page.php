@@ -69,8 +69,8 @@ $conn->close();
         </div>
         <ul>
             <li><a href="Dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> User</a></li>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Record</a></li>
+            <li><a href="userlist.php" class="active"><i class="fas fa-home"></i> User</a></li>
+            <li><a href="adminrecords.php" class="active"><i class="fas fa-home"></i> Record</a></li>
             <hr>
             <li><a href="admin_page.php"><i class="fas fa-cog"></i> Account Settings</a></li>
             <li><a href="admin-login.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
