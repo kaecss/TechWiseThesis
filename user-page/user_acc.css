@@ -170,16 +170,28 @@ hr {
     margin-bottom: 5px;
     color: #000;
 }
-
 .username-container input,
-.password-container input {
-	font-size: 15px;
-    width: 60%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.password-container input,
+.email-container input {
+    display: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    width: 50%;
     margin-top: 5px;
+    margin-bottom: 5px;
+    transition: border-bottom-color 0.3s;
+}
+
+.username-container input:hover,
+.password-container input:hover,
+.email-container input:hover {
+    border-bottom-color: #4cbb17;
+}
+
+.error-state {
+    border-bottom-color: red;
 }
 
 .email-container{
@@ -193,15 +205,12 @@ hr {
     color: #000;
 }
 
-
-.email-container input {
-    width: 60%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.error-message {
+    color: red;
+    font-size: 14px;
     margin-top: 5px;
 }
+
 
 button[name="updateBtn"] {
     background-color: #8C715B; 
@@ -233,6 +242,7 @@ button[name="editBtn"] {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+	margin-top: 50px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
