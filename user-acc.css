@@ -4,7 +4,7 @@ html, body {
     padding: 0;
     background-color: #FCFCF4;
     scroll-behavior: smooth;
-    height: 100%;
+ overflow: hidden;
 }
 
 .company-name {
@@ -34,14 +34,14 @@ html, body {
     top: 0;
     width: 220px;
     height: calc(100% - 40px);
-    background-color: #734122;
+    background-color: #1D130A;
     border-right: 1px solid #ccc;
     z-index: 1000;
     padding: 20px;
 }
 
 .user-info {
-    background-color: #BB8463;
+    background-color: #4F3421;
     padding: 10px;
     width: 90%;
     border-radius: 5px;
@@ -59,7 +59,7 @@ html, body {
 }
 
 .user-info .username {
-    color: #333;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -94,22 +94,23 @@ hr {
 
 .main-content {
     margin-left: 240px;
-    padding: 60px;
+    padding: 40px;
     background-image: url('b1.jpg'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
-    height: 525px;
+    height: 570px;
 }
 
 .profile-pic-container {
+	padding: 0;
     position: relative;
     display: inline-block;
 }
 
 .profile-pic {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 80%; 
     object-fit: cover;
     cursor: pointer;
@@ -133,58 +134,89 @@ hr {
     margin-top: 20px;
 }
 
-
+.upload-btn-container {
+    margin-top: 10px;  
+    text-align: center; 
+}
 .upload-btn {
-    position: absolute;
-    bottom: 280px;
-    left: 70%;
-    transform: translateX(-20%);
-    background-color: #734122;
+    background-color: #4F3421;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 11px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
 }
 .upload-btn:hover {
-    background-color: #996633; 
+    background-color: #8C715B; 
 }
 .account-details {
-    padding-top: 0;
+    padding: 0;
     padding-left: 20px;
     border-radius: 5px;
-    margin: 50px auto; 
+	color:#000;
+    margin: 30px auto; 
     text-align: relative; 
 }
 
 
 .username-container,
-.password-container {
-    margin-bottom: 20px;
+.password-container{
+    margin-bottom: 5px;
 }
 
 .username-container label,
 .password-container label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #000;
+}
+.username-container input,
+.password-container input,
+.email-container input {
+    display: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: border-bottom-color 0.3s;
 }
 
-.username-container input,
-.password-container input {
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+.username-container input:hover,
+.password-container input:hover,
+.email-container input:hover {
+    border-bottom-color: #4cbb17;
+}
+
+.error-state {
+    border-bottom-color: red;
+}
+
+.email-container{
+    margin-bottom: 5px;
+}
+
+
+.email-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
     margin-top: 5px;
 }
 
+
 button[name="updateBtn"] {
-    background-color: #734122; 
+    background-color: #8C715B; 
     border: none;
     color: white;
-    padding: 5px 20px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -196,13 +228,34 @@ button[name="updateBtn"] {
 }
 
 button[name="updateBtn"]:hover {
-    background-color: #996633; 
+    background-color: #B3A091;
+	color: #000;
+}
+
+button[name="editBtn"] {
+    background-color: #4a5d23;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	margin-top: 50px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button[name="editBtn"]:hover {
+    background-color: rgb(74,93,35, .7);
+	color: #000;
 }
 .notification {
 	position: fixed;
 	top: 20px;
 	right: 20px;
-	background-color: #734122;
+	background-color: #1D130A;
 	color: white;
 	padding: 10px;
 	border-radius: 5px;

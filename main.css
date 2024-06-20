@@ -84,7 +84,7 @@ header {
 }
 
 main {
-    background-image: url('b13.jpg');
+    background-image: url('image/b13.jpg');
     height: 110vh;
     position: relative;
     background-size: cover;

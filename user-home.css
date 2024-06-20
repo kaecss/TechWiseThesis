@@ -34,14 +34,14 @@ html, body {
     top: 0;
     width: 220px;
     height: calc(100% - 40px);
-    background-color: #734122;
+    background-color: #1D130A;
     border-right: 1px solid #ccc;
     z-index: 1000;
     padding: 20px;
 }
 
 .user-info {
-    background-color: #BB8463;
+    background-color: #4F3421;
     padding: 10px;
     width: 90%;
     border-radius: 5px;
@@ -59,7 +59,7 @@ html, body {
 }
 
 .user-info .username {
-    color: #333;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -108,7 +108,7 @@ hr {
 	margin-right: 10px;
     padding: 10px; 
 	height:35px;
-    background-color: #734122; 
+    background-color: #1D130A; 
     border: none;
     color: white;
     border-radius: 4px;
@@ -121,15 +121,16 @@ hr {
 }
 
 .upload-form {
-    margin-left: 76%;
-    display: inline-block; padding:0;
+    margin-left: 90%;
+    display: inline-block; 
+	padding:10px;
 }
 
 .upload-button {
 	margin-top: 2px;
     padding: 10px;
     display: inline-block;
-    background-color: #734122;
+    background-color: #1D130A;
     color: white;
     border: none;
     border-radius: 4px;
@@ -173,11 +174,61 @@ p {
     border-radius: 10px;
     border: 1px solid #ccc;
 	box-shadow: 5px  5px 2px rgba(0, 0, 0, 0.5);
+	position: relative; 
 }
 
-.content-details{
-	padding: 20px;
+.content-details {
+    padding: 20px;
+    flex-direction: column;
 }
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.file-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+.author {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px; 
+}
+.file-category {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px; 
+}
+
+.file-upload-date {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button i {
+    font-size: 14px;
+}
+
+
+
 .slider {
     position: relative;
     width: 80%; 
