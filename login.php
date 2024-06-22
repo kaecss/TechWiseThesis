@@ -295,6 +295,7 @@ if (isset($_POST['signup'])) {
                             <input name="answer2" type="text" class="input" required placeholder="Answer to the question">
                             <?php if(isset($signup_errors['answer2'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['answer2']) . '</div>'; } ?>
                         </div>
+                        <br>
                         <div class="group">
                             <input type="submit" class="button" value="Sign Up" name="signup">
                         </div>
