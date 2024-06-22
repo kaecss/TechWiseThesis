@@ -139,7 +139,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <title>USER Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login-user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -152,9 +152,9 @@ if (isset($_POST['signup'])) {
 
 <div class="company-info">
     <a href="admin-login.php">
-        <img src="image/logo.png" alt="Company Logo" class="company-logo">
+        <img src="image/logo2.png" alt="Company Logo" class="company-logo">
     </a>
-    <h1 class="company-name">TechWiseThesis</h1>
+    <!-- <h1 class="company-name">TechWiseThesis</h1> -->
 </div>
 <div class="container">
     <!--//////////LOG IN////////////////-->

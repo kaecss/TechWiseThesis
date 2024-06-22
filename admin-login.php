@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>ADMIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin-login.css">
+    <link rel="stylesheet" href="admin_login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 <div class="container">
         <div class="company-name">
              <a href="#">
-                <img src="image/logo.png" alt="Company Logo" class="company-logo">
+                <img src="image/logo2.png" alt="Company Logo" class="company-logo">
             </a>
-            <h1>TechWiseThesis</h1>
+            <!-- <h1>TechWiseThesis</h1> -->
         </div>
 
         <!--//////////ADMIN LOG IN////////////////-->
