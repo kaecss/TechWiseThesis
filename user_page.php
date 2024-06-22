@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['pdfFile'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User-Home</title>
-    <link rel="stylesheet" href="user-home.css">
+    <link rel="stylesheet" href="user-homes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -111,13 +111,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['pdfFile'])) {
             <li><a href="User-Library.php"><i class="fas fa-book"></i> Library</a></li>
         </ul>
     </div>
+
     <div class="header-actions">
-        <input type="text" id="searchInput" class="search-bar" placeholder="Search...">
-        <button type="button" onclick="searchFiles()" class="search-button"><i class="fas fa-search"></i></button>
+	 <div class="search-bar">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+                <select id="categoryDropdown" class="category-dropdown">
+					<option value="">All Categories</option>
+					<option value="Science">Scientific Studies</option>
+					<option value="Business">Market Research</option>
+					<option value="Literature">Literature Reviews</option>
+					<option value="Engineering">Engineering Analysis</option> 
+					<option value="Others">Others</option>
+					<?php foreach ($categories as $category) : ?>
+						<option value="<?php echo htmlspecialchars($category); ?>"><?php echo htmlspecialchars($category); ?></option>
+					<?php endforeach; ?>
+				</select>
+                <button id="searchFiles()" class="search-button"><i class="fas fa-search"></i></button>
+            </div> 
     </div>
+
+
     <div class="upload-form">
        <button class="upload-button" onclick="showUploadModal()"><i class="fas fa-upload"></i> Upload File</button>
-
     </div>
 
    <div id="uploadModal" style="display: none;">
@@ -482,28 +497,46 @@ function displayRecentlyOpenedFiles() {
             });
         }
 
-        function addFileToContainer(fileName, filePath, fileId) {
-            const contentContainer = document.querySelector(".content-container");
-            const fileElement = document.createElement("div");
-            fileElement.classList.add("content-item");
-            fileElement.id = "file_" + fileId;
-            const fileDetails = document.createElement("div");
-            fileDetails.classList.add("content-details");
-            const link = document.createElement("a");
-            link.href = filePath;
-            link.target = "_blank";
-            link.innerText = fileName;
-            fileDetails.appendChild(link);
-            const deleteButton = document.createElement("button");
-            deleteButton.classList.add("delete-button");
-            deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-            deleteButton.onclick = function() {
-                deleteFile(fileId);
-            };
-            fileDetails.appendChild(deleteButton);
-            fileElement.appendChild(fileDetails);
-            contentContainer.appendChild(fileElement);
-        }
+        function addFileToContainer(fileName, filePath, fileId, category) {
+    const contentContainer = document.querySelector(".content-container");
+    const fileElement = document.createElement("div");
+    fileElement.classList.add("content-item");
+    fileElement.id = "file_" + fileId;
+    const fileDetails = document.createElement("div");
+    fileDetails.classList.add("content-details");
+    const link = document.createElement("a");
+    link.href = filePath;
+    link.target = "_blank";
+    link.innerText = fileName;
+    fileDetails.appendChild(link);
+
+    const authorDiv = document.createElement("div");
+    authorDiv.classList.add("author");
+    authorDiv.innerHTML = '<span>Author: <?php echo htmlspecialchars($username); ?></span>';
+    fileDetails.appendChild(authorDiv);
+
+    const categoryDiv = document.createElement("div");
+    categoryDiv.classList.add("file-category");
+    categoryDiv.innerHTML = '<span>Category: ' + category + '</span>';
+    fileDetails.appendChild(categoryDiv);
+	
+	 const upload_dateDiv = document.createElement("div");
+    upload_dateDiv.classList.add("file-upload-date");
+    upload_dateDiv.innerHTML = '<span>Uploaded on:  <?php echo date('M d, Y ', strtotime($file['upload_date'])); ?></span>';
+    fileDetails.appendChild(upload_dateDiv);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteButton.onclick = function() {
+        deleteFile(fileId);
+    };
+    fileDetails.appendChild(deleteButton);
+
+    fileElement.appendChild(fileDetails);
+    contentContainer.appendChild(fileElement);
+}
+
 		function logout() {
     var userId = <?php echo json_encode($user_id); ?>;
     var recentlyOpenedKey = 'recentlyOpenedFiles_' + userId;

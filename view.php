@@ -292,17 +292,14 @@ hr {
             <i class="fas fa-arrow-left"></i>
         </button>
         <button class="button" onclick="performAction('download')">
-    <i class="fas fa-download"></i> Download
-</button>
-
-<button class="button" onclick="performAction('openin')">
-    <i class="fas fa-folder-open"></i> Open In
-</button>
-
-<button class="button" onclick="performAction('saveas')">
-    <i class="fas fa-save"></i> Save As
-</button>
-
+            <i class="fas fa-download"></i> Download
+        </button>
+        <button class="button" onclick="performAction('saveaspdf')">
+            <i class="fas fa-save"></i> Save As PDF
+        </button>
+        <button class="button" onclick="performAction('saveasdocx')">
+            <i class="fas fa-save"></i> Save As DOCX
+        </button>
     </div>
     <div class="header-right">
         <button class="comment-button" onclick="toggleCommentSection()">
@@ -359,6 +356,19 @@ hr {
         <div class="close-button" onclick="toggleCommentSection()">Close</div>
     </div>
     <script>
+        function performAction(action) {
+    var fileId = <?php echo $file_id; ?>;
+    if (action === 'download') {
+        window.location.href = 'download.php?file_id=' + fileId;
+    } else if (action === 'saveaspdf') {
+        window.location.href = 'save_as_pdf.php?file_id=' + fileId;
+    } else if (action === 'saveasdocx') {
+        window.location.href = 'save_as_docx.php?file_id=' + fileId;
+    }
+}
+
+
+
       function addComment() {
     var commentInput = document.getElementById('commentInput').value;
     var fileId = document.getElementById('fileId').value;

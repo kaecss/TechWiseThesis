@@ -97,29 +97,35 @@ hr {
     justify-content: flex-end; 
     margin-top: 5px; 
 }
-.search-bar {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 20%;
-	margin-bottom: 0;
-}
-.search-button {
-	margin-right: 10px;
-    padding: 10px; 
-	height:35px;
-    background-color: #1D130A; 
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.search-button:hover {
-    background-color: #996633; 
+.header-actions .search-bar {
+	display: flex;
+	align-items: center;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	overflow: hidden;
+	width: 30%;
 }
-
+ .header-actions .search-input {
+	border: none;
+	padding: 10px;
+	flex-grow: 1;
+	outline: none;
+}
+.header-actions .category-dropdown {
+	border: none;
+	padding: 10px;
+	background-color: #f1f1f1;
+	cursor: pointer;
+	outline: none;
+}
+ .header-actions .search-button {
+	background-color: #1D130A;
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+}
 .upload-form {
     margin-left: 90%;
     display: inline-block; 
