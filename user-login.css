@@ -1,4 +1,4 @@
-body {
+ body {
 	margin: 0;
 	padding: 0;
 	height: 100vh;
@@ -31,9 +31,9 @@ body {
 }
 
 .company-logo {
-    width: 90px; 
-    height: 90px;
-    margin: 5px 10px 5px 10px;
+	width: 50px; 
+	height: 50px;
+	border-radius:50%;
 }
 
 .company-name {
@@ -60,7 +60,6 @@ body {
 }
 .container {
 	width: 100vw;
-	height: 90vh;
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -70,6 +69,7 @@ body {
 	color: #BA7E3B;
 	font: 600 16px/18px 'Times New Roman', Times, serif;
 	overflow: hidden;
+
 }
 
 .login-wrap {
@@ -80,11 +80,8 @@ body {
     background: rgb(0,0,0, .5);
     border-radius: 20px;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
-
-
-
 .login-html {
     width: 100%;
     padding: 20px ;
@@ -94,7 +91,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     color: #BA7E3B;
     background: none;
@@ -107,11 +104,8 @@ body {
 .exit-button:hover {
     color: #ffffff;
 }
-
-
 .login-form {
-	height: 460px;
-	
+	height: 500px;
     position: relative;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -137,7 +131,7 @@ body {
 }
 
 .login-form .group {
-    margin-bottom: 10px;
+    margin-bottom:3px;
 }
 
 .login-html .tab,
@@ -150,7 +144,7 @@ body {
     font-size: 22px;
     margin-right: 15px;
     padding-bottom: 5px;
-    margin: 0 15px 10px 0;
+    margin: 0 10px 10px 0;
     display: inline-block;
     border-bottom: 1px solid transparent;
     transition: color 0.3s, border-color 0.3s;
@@ -188,7 +182,7 @@ a {
 
 .group .input {
     width: 100%;
-    padding: 10px 15px;
+    padding: 9px 10px;
     border-radius: 25px;
     background: rgba(255, 255, 255, .2);
     border: none;
@@ -198,7 +192,6 @@ a {
 
 .log-in-htm  {
     padding-top: 100px ;
-	
     border: none;
     appearance: none; 
 }
