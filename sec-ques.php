@@ -1,4 +1,8 @@
-<?php require_once "UserDataController.php"; ?>
+<?php 
+session_start();
+include 'connection.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,23 +50,28 @@
             <input id="tab-1" type="radio" name="tab" class="log-in" checked><label for="tab-1" class="tab">Forgot Password</label>
             <div class="login-form">
                 <div class="log-in-htm">
-                   <form action="UserDataController.php" method="post" autocomplete>
 					<div class="group">
-						<label for="email" class="label">Enter your email address</label><br>
-                        <input id="email" name="email" type=" email" class="input" required placeholder="Enter your email address">
-                    <?php
-                        if(count($errors) > 0){
-                            ?>
-                            <div class="alert alert-danger text-center">
-                                <?php 
-                                    foreach($errors as $error){
-                                        echo $error;
-                                    }
-                                ?>
-                            </div>
-                            <?php
-                        }
-                    ?>
+                        <label class="label">Username</label>
+                        <input name="email_or_username" type="text" class="input" required placeholder="Enter username">
+                        <label class="label">Security Question 1</label>
+                            <select name="question1" class="input" required>
+                                <option value="">Select a question...</option>
+                                <option value="q1">What is your mother's maiden name?</option>
+                                <option value="q2">What is the name of your first pet?</option>
+                                
+                            </select>
+                            <label class="label">Answer 1</label>
+                            <input name="answer1" type="text" class="input" required placeholder="Answer to the question">
+                        <label class="label">Security Question 2</label>
+                            <select name="question2" class="input" required>
+                                <option value="">Select a question...</option>
+                                <option value="q3">Where did you grow up?</option>
+                                <option value="q4">What is your favorite book?</option>
+                                
+                            </select>
+                            <label class="label">Answer 2</label>
+                            <input name="answer2" type="text" class="input" required placeholder="Answer to the question">
+                    
                     <br>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="check-email" value="Continue">
@@ -71,9 +80,9 @@
                     <br>
                     <hr>
                     <div class="aw">
-                        <a href="sec-ques.php">Answer security questions instead</a>
+                        <a href="forgot_pass.php">Use Email instead</a>
                     </div>
-                </form>
+                
             </div>
         </div>
     </div>

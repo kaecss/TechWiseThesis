@@ -49,7 +49,6 @@ if (isset($_POST['submit']) && isset($_POST['email_or_username']) && isset($_POS
     }
 }
 
-
 // Function to check if username exists in database
 function usernameExists($con, $username) {
     $stmt = $con->prepare("SELECT * FROM user_form WHERE username = ?");
@@ -74,8 +73,10 @@ if (isset($_POST['signup'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
-    $question = mysqli_real_escape_string($con, $_POST['question']);
-    $answer = mysqli_real_escape_string($con, $_POST['answer']);
+    $question1 = mysqli_real_escape_string($con, $_POST['question1']);
+    $answer1 = mysqli_real_escape_string($con, $_POST['answer1']);
+    $question2 = mysqli_real_escape_string($con, $_POST['question2']);
+    $answer2 = mysqli_real_escape_string($con, $_POST['answer2']);
     $user_type = 'user'; // Assuming default user type is 'user'
 
     // Validate inputs
@@ -105,12 +106,20 @@ if (isset($_POST['signup'])) {
         $signup_errors['confirm_password'] = 'Passwords do not match';
     }
 
-    if (empty($question)) {
-        $signup_errors['question'] = 'Please select a security question.';
+    if (empty($question1)) {
+        $signup_errors['question1'] = 'Please select a security question.';
     }
 
-    if (empty($answer)) {
-        $signup_errors['answer'] = 'Answer is required';
+    if (empty($answer1)) {
+        $signup_errors['answer1'] = 'Answer is required';
+    }
+
+    if (empty($question2)) {
+        $signup_errors['question2'] = 'Please select a security question.';
+    }
+
+    if (empty($answer2)) {
+        $signup_errors['answer2'] = 'Answer is required';
     }
 
     // If no errors, proceed to insert into database
@@ -119,8 +128,8 @@ if (isset($_POST['signup'])) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // Insert into database using prepared statement
-        $stmt = $con->prepare("INSERT INTO user_form (username, email, password, question, answer, user_type) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $username, $email, $hashed_password, $question, $answer, $user_type);
+        $stmt = $con->prepare("INSERT INTO user_form (username, email, password, question1, answer1, question2, answer2, user_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $username, $email, $hashed_password, $question1, $answer1, $question2, $answer2, $user_type);
 
         if ($stmt->execute()) {
             $_SESSION['account_created'] = true;
@@ -154,7 +163,6 @@ if (isset($_POST['signup'])) {
     <a href="admin-login.php">
         <img src="image/logo2.png" alt="Company Logo" class="company-logo">
     </a>
-    <!-- <h1 class="company-name">TechWiseThesis</h1> -->
 </div>
 <div class="container">
     <!--//////////LOG IN////////////////-->
@@ -193,99 +201,90 @@ if (isset($_POST['signup'])) {
                         <?php
                         if(isset($login_errors) && !empty($login_errors)) {
                             foreach($login_errors as $error) {
-                                echo '<span class="error-msg">'.$error.'</span><br>';
+                                echo '<div class="error">' . htmlspecialchars($error) . '</div>';
                             }
                         }
                         ?>
                     </form>
-
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <a href="forgot_pass.php">Forgot Password?</a>
-                    </div>
                 </div>
-
-                
-                <!--//////////SIGN UP////////////////-->
                 <div class="sign-in-htm">
-                    <form action="" method="post">
+                    <?php
+                    if(isset($_SESSION['account_created']) && $_SESSION['account_created'] == true){
+                        unset($_SESSION['account_created']);
+                        echo '<script>
+                        window.onload = function() {
+                            alert("User account has been successfully created!");
+                        }
+                        </script>';
+                    }
+                    ?>
+                    <form action="" method="POST">
                         <div class="group">
-                            <label for="signup-username" class="label">Username</label>
-                            <input id="signup-username" name="username" type="text" class="input" required placeholder="Enter your username">
-                            <?php if(isset($signup_errors['username'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['username']; ?></span>
-                            <?php } ?>
+                            <label class="label">Username</label>
+                            <input name="username" type="text" class="input" required placeholder="Create your username">
+                            <?php if(isset($signup_errors['username'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['username']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <label for="signup-email" class="label">Email</label>
-                            <input id="signup-email" name="email" type="email" class="input" required placeholder="Enter your email">
-                            <?php if(isset($signup_errors['email'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['email']; ?></span>
-                            <?php } ?>
+                            <label class="label">Email</label>
+                            <input name="email" type="email" class="input" required placeholder="Enter your email">
+                            <?php if(isset($signup_errors['email'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['email']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <label for="signup-password" class="label">Password</label>
-                            <input id="signup-password" name="password" type="password" class="input" required placeholder="Enter your password">
-                            <?php if(isset($signup_errors['password'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['password']; ?></span>
-                            <?php } ?>
+                            <label class="label">Password</label>
+                            <input name="password" type="password" class="input" required placeholder="Create your password">
+                            <?php if(isset($signup_errors['password'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['password']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <label for="signup-confirm-password" class="label">Confirm Password</label>
-                            <input id="signup-confirm-password" name="confirm_password" type="password" class="input" required placeholder="Confirm your password">
-                            <?php if(isset($signup_errors['confirm_password'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['confirm_password']; ?></span>
-                            <?php } ?>
+                            <label class="label">Confirm Password</label>
+                            <input name="confirm_password" type="password" class="input" required placeholder="Confirm your password">
+                            <?php if(isset($signup_errors['confirm_password'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['confirm_password']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <label for="signup-question" class="label">Security Question</label>
-                            <select id="signup-question" name="question" class="input" required>
-                                <option value="" disabled selected>Select a security question:</option>
-                                <option value="q1" <?php echo (isset($_POST['question']) && $_POST['question'] === 'q1') ? 'selected' : ''; ?>>What is your mother's maiden name?</option>
-                                <option value="q2" <?php echo (isset($_POST['question']) && $_POST['question'] === 'q2') ? 'selected' : ''; ?>>What city were you born in?</option>
-                                <option value="q3" <?php echo (isset($_POST['question']) && $_POST['question'] === 'q3') ? 'selected' : ''; ?>>What is your favorite pet's name?</option>
+                            <label class="label">Security Question 1</label>
+                            <select name="question1" class="input" required>
+                                <option value="">Select a question...</option>
+                                <option value="q1">What is your mother's maiden name?</option>
+                                <option value="q2">What is the name of your first pet?</option>
+                                
                             </select>
-                            <?php if(isset($signup_errors['question'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['question']; ?></span>
-                            <?php } ?>
+                            <?php if(isset($signup_errors['question1'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['question1']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <label for="signup-answer" class="label">Answer</label>
-                            <input id="signup-answer" name="answer" type="text" class="input" required placeholder="Enter your answer">
-                            <?php if(isset($signup_errors['answer'])) { ?>
-                                <span class="error-msg"><?php echo $signup_errors['answer']; ?></span>
-                            <?php } ?>
+                            <label class="label">Answer 1</label>
+                            <input name="answer1" type="text" class="input" required placeholder="Answer to the question">
+                            <?php if(isset($signup_errors['answer1'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['answer1']) . '</div>'; } ?>
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" name="signup" value="Sign Up">
+                            <label class="label">Security Question 2</label>
+                            <select name="question2" class="input" required>
+                                <option value="">Select a question...</option>
+                                <option value="q3">Where did you grow up?</option>
+                                <option value="q4">What is your favorite book?</option>
+                                
+                            </select>
+                            <?php if(isset($signup_errors['question2'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['question2']) . '</div>'; } ?>
                         </div>
+                        <div class="group">
+                            <label class="label">Answer 2</label>
+                            <input name="answer2" type="text" class="input" required placeholder="Answer to the question">
+                            <?php if(isset($signup_errors['answer2'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['answer2']) . '</div>'; } ?>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up" name="signup">
+                        </div>
+
                         <?php
-                        if(isset($signup_errors['db_error'])) {
-                            echo '<span class="error-msg">' . $signup_errors['db_error'] . '</span>';
+                        if(isset($signup_errors) && !empty($signup_errors)) {
+                            foreach($signup_errors as $error) {
+                                echo '<div class="error">' . htmlspecialchars($error) . '</div>';
+                            }
                         }
                         ?>
                     </form>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <a href="login.php">Already have an Account?</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<?php
-// SweetAlert for success message
-if(isset($_SESSION['account_created'])) {
-    echo '<script>
-            window.onload = function() {
-                swal("Thank you!", "User account was successfully created!", "success");
-            }
-          </script>';
-    unset($_SESSION['account_created']);
-}
-?>
-
 </body>
 </html>
