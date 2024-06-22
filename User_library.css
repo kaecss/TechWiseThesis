@@ -33,9 +33,9 @@ background: #fff;
 }
 
 .company-logo {
-    width: 50px; 
-    height: 50px;
-    border-radius: 100%;
+    width: 90px; 
+    height: 90px;
+    margin: 5px 10px 5px 50px;
 }
 
 .company-name h2 {
