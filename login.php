@@ -151,6 +151,26 @@ if (isset($_POST['signup'])) {
     <link rel="stylesheet" href="login-user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .aw {
+            text-align: center;
+            color: #fff;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .aw a {
+            display: inline-block; 
+        }
+        .aw a:hover {
+            color: #A90F0D;
+            cursor: pointer;
+        }
+
+        .aw label:hover {
+            color: #BA7E3B;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -205,6 +225,12 @@ if (isset($_POST['signup'])) {
                             }
                         }
                         ?>
+
+                    <br>
+                    <hr>
+                    <div class="aw">
+                        <a href="forgot_pass.php">Forgot your password?</a>
+                    </div>
                     </form>
                 </div>
                 <div class="sign-in-htm">
