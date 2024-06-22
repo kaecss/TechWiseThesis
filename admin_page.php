@@ -59,9 +59,9 @@ $conn->close();
     <div class="side-panel">
         <div class="company-name">
             <a href="#">
-                <img src="image/logo.png" alt="Company Logo" class="company-logo">
+                <img src="image/logo2.png" alt="Company Logo" class="company-logo">
             </a>
-            <h2>TechWiseThesis</h2>
+            <!-- <h2>TechWiseThesis</h2> -->
         </div>
         <div class="user-info">
             <img src="<?php echo htmlspecialchars($profilePic); ?>" alt="Profile" class="user-icon" id="userIcon">
