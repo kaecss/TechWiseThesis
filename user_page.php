@@ -156,6 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['pdfFile'])) {
 
     <div class="main-content">
         <div class="slider">
+            <label class="label">Welcome back, <?php echo $_SESSION['username']; ?>!</label><br><br>
             <p>Upload Files:</p>
             <button class="nav-btn prev">&#10094;</button>
          <div class="content-container" id="uploadedFilesContainer">
@@ -183,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['pdfFile'])) {
 	</div>
 			<button class="nav-btn next">&#10095;</button>
         </div>
-        <div class="slider">
+        <div class="slider2">
             <p>Recently:</p>
             <button class="nav-btn prev">&#10094;</button>
             <div class="content-container" id="recentlyOpenedFilesContainer"></div>

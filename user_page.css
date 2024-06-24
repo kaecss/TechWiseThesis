@@ -237,12 +237,28 @@ p {
 
 .slider {
     position: relative;
-    width: 80%; 
+    width: 80%;
     margin: 0 auto;
 	margin-right: 80px;
     overflow: hidden; 
-	padding-bottom:50px;
+	padding-bottom: 90px;
 	padding-right: 20px;
+}
+
+.slider2 {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-right: 80px;
+    overflow: hidden; 
+    padding-bottom: 80px;
+    padding-top: 80px;
+    padding-right: 20px;
+}
+
+.label {
+    font-size: 40px;
+    color: #1D130A;
 }
 
 .nav-btn {
