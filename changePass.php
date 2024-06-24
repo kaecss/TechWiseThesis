@@ -1,34 +1,8 @@
-<?php
-session_start();
-
-// connection.php
-$conn = mysqli_connect('localhost', 'root', '', 'techwisethesis');
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['submit'])) {
-        $un = $_SESSION['username'];
-        $pw = $_POST['password'];
-
-        // Hash the password
-        $hashed_password = password_hash($pw, PASSWORD_DEFAULT);
-
-        // Use prepared statement to update password securely
-        $stmt = $conn->prepare("UPDATE user_form SET password = ? WHERE username = ?");
-        $stmt->bind_param("ss", $hashed_password, $un);
-
-        if ($stmt->execute()) {
-            // Password updated successfully
-            header("Location: login.php");
-            exit();
-        } else {
-            // Handle error if update fails
-            echo "Error updating password: " . $conn->error;
-        }
-    }
+<?php require_once "UserDataController.php"; ?>
+<?php 
+$username = $_SESSION['username'];
+if($username == false){
+  header('Location: login.php');
 }
 ?>
 
@@ -37,64 +11,82 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
-    <link rel="stylesheet" href="forgot-pas.css">
+    <title>Create a New Password</title>
+    <link rel="stylesheet" href="new-password.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
-        .aw {
-            text-align: center;
-            color: #fff;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .aw a {
-            display: inline-block; 
-        }
-        .aw a:hover {
-            color: #A90F0D;
-            cursor: pointer;
-        }
-
-        .aw label:hover {
-            color: #BA7E3B;
-            cursor: pointer;
+        .error-msg {
+            color: #734122; /* Set the color for error messages */
         }
     </style>
 </head>
 <body>
 
 <video id="video-background" autoplay muted loop>
-    <source src="v1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+        <source src="v1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
 </video>
 
-<div class="login-wrap">
-    <div class="login-html">
-        <a href="login.php">
-            <button class="exit-button"><i class="fa fa-times"></i></button>
-        </a>
-        <input id="tab-1" type="radio" name="tab" class="log-in" checked><label for="tab-1" class="tab">Forgot Password</label>
-        <div class="login-form">
-            <div class="log-in-htm">
-                <div class="group">
-                    <form action="changePass.php" method="POST">
-                        <label class="label">Welcome, <?php echo $_SESSION['username']; ?>!</label>
-                        <input name="password" type="password" class="input" required placeholder="Enter New password">
+    <div class="login-wrap">
+        <div class="login-html">
+            <a href="login.php">
+                <button class="exit-button"><i class="fa fa-xmark"></i></button>
+            </a>
+            <input id="tab-1" type="radio" name="tab" class="log-in" checked><label for="tab-1" class="tab">New Password</label>
+
+            <div class="login-form">
+                <div class="log-in-htm">
+                    <form action="changePass.php" method="post" autocomplete="off">
+                        <div class="group">
+                            <label for="password" class="label">Create New Password</label>
+                            <input id="password" name="password" type="password" class="input" placeholder="Enter your new password" required>
+                            <?php if(isset($errors['password'])) { ?>
+                                <span class="error-msg"><?php echo $errors['password']; ?></span>
+                            <?php } ?>
+                        </div>
+
+                        <div class="group">
+                            <label for="cpassword" class="label">Confirm New Password</label>
+                            <input id="cpassword" name="cpassword" type="password" class="input" placeholder="Confirm your new password" required>
+
+                            <?php if(isset($errors['password'])) { ?>
+                                <span class="error-msg"><?php echo $errors['password']; ?></span>
+                            <?php } ?>
+
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" name="change-password" value="Reset Password">
+                        </div>
+
+                        <?php
+                        if(isset($errors['db_error'])) {
+                            echo '<span class="error-msg">' . $errors['db_error'] . '</span>';
+                        }
+                        ?>
                         <br>
-                        <input class="form-control button" type="submit" name="submit" value="Continue">
                     </form>
-                    
-                    <br>
-                    <hr>
-                    <div class="aw">
-                        <a href="login.php">Go back to Log in Page</a>
-                    </div>
-                
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
+<script>
+// SweetAlert for success message
+document.addEventListener('DOMContentLoaded', function() {
+    <?php if(isset($_SESSION['password_changed']) && $_SESSION['password_changed'] === true): ?>
+        Swal.fire({
+            title: "Congrats!",
+            text: "Your password has been changed. You can now login to your account!",
+            icon: "success"
+        }).then(function() {
+            window.location = "login.php";
+        });
+        <?php unset($_SESSION['password_changed']); ?>
+    <?php endif; ?>
+});
+</script>
+
 </body>
 </html>

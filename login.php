@@ -77,7 +77,7 @@ if (isset($_POST['signup'])) {
     $answer1 = mysqli_real_escape_string($con, $_POST['answer1']);
     $question2 = mysqli_real_escape_string($con, $_POST['question2']);
     $answer2 = mysqli_real_escape_string($con, $_POST['answer2']);
-    $user_type = 'user'; // Assuming default user type is 'user'
+    $user_type = 'user'; //Default user type is 'user'
 
     // Validate inputs
     if (empty($username)) {
@@ -151,26 +151,6 @@ if (isset($_POST['signup'])) {
     <link rel="stylesheet" href="user-login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        .aw {
-            text-align: center;
-            color: #fff;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .aw a {
-            display: inline-block; 
-        }
-        .aw a:hover {
-            color: #A90F0D;
-            cursor: pointer;
-        }
-
-        .aw label:hover {
-            color: #BA7E3B;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 
@@ -183,6 +163,7 @@ if (isset($_POST['signup'])) {
     <a href="admin-login.php">
         <img src="image/logo2.png" alt="Company Logo" class="company-logo">
     </a>
+    <!-- <h1 class="company-name">TechWiseThesis</h1> -->
 </div>
 <div class="container">
     <!--//////////LOG IN////////////////-->
@@ -221,97 +202,121 @@ if (isset($_POST['signup'])) {
                         <?php
                         if(isset($login_errors) && !empty($login_errors)) {
                             foreach($login_errors as $error) {
-                                echo '<div class="error">' . htmlspecialchars($error) . '</div>';
+                                echo '<span class="error-msg">'.$error.'</span><br>';
                             }
                         }
                         ?>
+                    </form>
 
-                    <br>
-                    <hr>
-                    <div class="aw">
-                        <a href="forgot_pass.php">Forgot your password?</a>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="forgot_pass.php">Forgot Password?</a>
                     </div>
-                    </form>
                 </div>
+
+                
+                <!--//////////SIGN UP////////////////-->
                 <div class="sign-in-htm">
-                    <?php
-                    if(isset($_SESSION['account_created']) && $_SESSION['account_created'] == true){
-                        unset($_SESSION['account_created']);
-                        echo '<script>
-                        window.onload = function() {
-                            alert("User account has been successfully created!");
-                        }
-                        </script>';
-                    }
-                    ?>
-                    <form action="" method="POST">
+                    <form action="" method="post">
                         <div class="group">
-                            <label class="label">Username</label>
-                            <input name="username" type="text" class="input" required placeholder="Create your username">
-                            <?php if(isset($signup_errors['username'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['username']) . '</div>'; } ?>
+                            <label for="signup-username" class="label">Username</label>
+                            <input id="signup-username" name="username" type="text" class="input" required placeholder="Enter your username">
+                            <?php if(isset($signup_errors['username'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['username']; ?></span>
+                            <?php } ?>
                         </div>
                         <div class="group">
-                            <label class="label">Email</label>
-                            <input name="email" type="email" class="input" required placeholder="Enter your email">
-                            <?php if(isset($signup_errors['email'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['email']) . '</div>'; } ?>
+                            <label for="signup-email" class="label">Email</label>
+                            <input id="signup-email" name="email" type="email" class="input" required placeholder="Enter your email">
+                            <?php if(isset($signup_errors['email'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['email']; ?></span>
+                            <?php } ?>
                         </div>
                         <div class="group">
-                            <label class="label">Password</label>
-                            <input name="password" type="password" class="input" required placeholder="Create your password">
-                            <?php if(isset($signup_errors['password'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['password']) . '</div>'; } ?>
+                            <label for="signup-password" class="label">Password</label>
+                            <input id="signup-password" name="password" type="password" class="input" required placeholder="Enter your password">
+                            <?php if(isset($signup_errors['password'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['password']; ?></span>
+                            <?php } ?>
                         </div>
                         <div class="group">
-                            <label class="label">Confirm Password</label>
-                            <input name="confirm_password" type="password" class="input" required placeholder="Confirm your password">
-                            <?php if(isset($signup_errors['confirm_password'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['confirm_password']) . '</div>'; } ?>
-                        </div>
-                        <div class="group">
-                            <label class="label">Security Question 1</label>
-                            <select name="question1" class="input" required>
-                                <option value="">Select a question...</option>
-                                <option value="q1">What is your mother's maiden name?</option>
-                                <option value="q2">What is the name of your first pet?</option>
-                                
-                            </select>
-                            <?php if(isset($signup_errors['question1'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['question1']) . '</div>'; } ?>
-                        </div>
-                        <div class="group">
-                            <label class="label">Answer 1</label>
-                            <input name="answer1" type="text" class="input" required placeholder="Answer to the question">
-                            <?php if(isset($signup_errors['answer1'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['answer1']) . '</div>'; } ?>
-                        </div>
-                        <div class="group">
-                            <label class="label">Security Question 2</label>
-                            <select name="question2" class="input" required>
-                                <option value="">Select a question...</option>
-                                <option value="q3">Where did you grow up?</option>
-                                <option value="q4">What is your favorite book?</option>
-                                
-                            </select>
-                            <?php if(isset($signup_errors['question2'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['question2']) . '</div>'; } ?>
-                        </div>
-                        <div class="group">
-                            <label class="label">Answer 2</label>
-                            <input name="answer2" type="text" class="input" required placeholder="Answer to the question">
-                            <?php if(isset($signup_errors['answer2'])) { echo '<div class="error">' . htmlspecialchars($signup_errors['answer2']) . '</div>'; } ?>
-                        </div>
-                        <br>
-                        <div class="group">
-                            <input type="submit" class="button" value="Sign Up" name="signup">
+                            <label for="signup-confirm-password" class="label">Confirm Password</label>
+                            <input id="signup-confirm-password" name="confirm_password" type="password" class="input" required placeholder="Confirm your password">
+                            <?php if(isset($signup_errors['confirm_password'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['confirm_password']; ?></span>
+                            <?php } ?>
                         </div>
 
+                        <div class="group">
+                            <label for="signup-question" class="label">Security Question 1</label>
+                            <select id="signup-question" name="question1" class="input" required>
+                                <option value="" disabled selected>Select a question...</option>
+                                <option value="q1">What is your mother's maiden name?</option>
+                                <option value="q2">What is your favorite pet's name?</option>
+                            </select>
+                            <?php if(isset($signup_errors['question'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['question']; ?></span>
+                            <?php } ?>
+                        </div>
+                        <div class="group">
+                            <label for="signup-answer" class="label">Answer 1</label>
+                            <input id="signup-answer" name="answer1" type="text" class="input" required placeholder="Enter your answer">
+                            <?php if(isset($signup_errors['answer'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['answer']; ?></span>
+                            <?php } ?>
+                        </div>
+
+
+                        <div class="group">
+                            <label for="signup-question" class="label">Security Question 2</label>
+                            <select id="signup-question" name="question2" class="input" required>
+                                <option value="" disabled selected>Select a question...</option>
+                                <option value="q3">What city were you born in?</option>
+                                <option value="q4">What is your favorite book?</option>
+                            </select>
+                            <?php if(isset($signup_errors['question'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['question']; ?></span>
+                            <?php } ?>
+                        </div>
+                        <div class="group">
+                            <label for="signup-answer" class="label">Answer 2</label>
+                            <input id="signup-answer" name="answer2" type="text" class="input" required placeholder="Enter your answer">
+                            <?php if(isset($signup_errors['answer'])) { ?>
+                                <span class="error-msg"><?php echo $signup_errors['answer']; ?></span>
+                            <?php } ?>
+                        </div>
+
+
+                        <div class="group">
+                            <input type="submit" class="button" name="signup" value="Sign Up">
+                        </div>
                         <?php
-                        if(isset($signup_errors) && !empty($signup_errors)) {
-                            foreach($signup_errors as $error) {
-                                echo '<div class="error">' . htmlspecialchars($error) . '</div>';
-                            }
+                        if(isset($signup_errors['db_error'])) {
+                            echo '<span class="error-msg">' . $signup_errors['db_error'] . '</span>';
                         }
                         ?>
                     </form>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="login.php">Already have an Account?</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+// SweetAlert for success message
+if(isset($_SESSION['account_created'])) {
+    echo '<script>
+            window.onload = function() {
+                swal("Thank you!", "User account was successfully created!", "success");
+            }
+          </script>';
+    unset($_SESSION['account_created']);
+}
+?>
+
 </body>
 </html>

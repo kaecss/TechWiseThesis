@@ -119,7 +119,7 @@ if (isset($_POST['submit'])) {
                     <br>
                     <hr>
                     <div class="aw">
-                        <a href="forgot_pass.php">Use Email instead</a>
+                        <a href="forgot_pass.php">Use email instead</a>
                     </div>
                 
                 </div>
