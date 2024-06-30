@@ -76,7 +76,24 @@ $stmt->close();
             <div class="col-sm-4">
                 <div class="card">
                 <div class="card-body">
-                    <h1 class="card-title"><i class="fas fa-user-alt"></i> 77</h1>
+                    <h1 class="card-title"><i class="fas fa-user-alt"></i> 
+                        <?php 
+                            $stmt = $conn->prepare("SELECT COUNT(id) AS user_count FROM user_form");
+
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            $row = $result->fetch_assoc();
+
+                            $user_count = $row['user_count'];
+
+                            echo $user_count;
+
+                            $stmt->close();
+                        ?>
+                       
+                            
+                        
+                </h1>
                     <h4 class="card-title">Number of users</h4>
                 </div>
                 </div>
